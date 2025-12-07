@@ -5,19 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Table</title>
     <link rel="stylesheet" href="style.css" />
-	  <style>
-        table, td, th {
-            border: 2px solid black;
-            border-collapse: collapse;
-            padding: 8px;
-        }
-        .black-cell {
-            background: black;
-            color: white;
-            font-weight: bold;
-            text-align: center;
-        }
-    </style>
+	   <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+
+    .main-table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      border: 3px solid #333;
+    }
+    .main-table td {
+      border: 2px solid #666;
+      vertical-align: top;
+      padding: 8px;
+    }
+
+   
+    .nested {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 0;
+    }
+    .nested th, .nested td {
+      border: 2px solid #444;
+      padding: 8px;
+      text-align: center;
+    }
+    .nested th {
+      font-weight: bold;
+    }
+
+   
+    .html-cell {
+      background: #000;
+      color: #fff;
+      font-weight: bold;
+      padding: 14px;
+    }
+
+    
+    .vertical-nested td {
+      padding: 6px;
+    }
+
+    
+    .list-box {
+      border: 2px solid #444;
+      padding: 12px;
+      margin: 6px 0;
+      height: 140px; 
+    }
+
+   
+    @media (max-width: 600px) {
+      .main-table { font-size: 14px; }
+    }
+  </style>
+
 
 
 	   
@@ -25,77 +74,79 @@
   <body>
     
       <!-- Your code here -->
-		
-<table width="100%">
+	    <h2 style="text-align:center;">Nested HTML Tables</h2>
+
+  <table class="main-table" aria-label="Main table with nested tables">
     <tr>
-        
-        <td width="30%" valign="top">
-
-           
-            <table width="100%">
-                <tr>
-                    <th>Nested Table 3</th>
-                </tr>
-                <tr>
-                    <td>Demo Continued</td>
-                </tr>
-            </table>
-
-            <br>
-
-           
-            <table width="100%">
-                <tr>
-                    <td class="black-cell">HTML</td>
-                </tr>
-                <tr>
-                    <th>Nested Table 4</th>
-                </tr>
-            </table>
-
-        </td>
+      
+      <td style="width: 28%;">
+       
+        <table class="nested vertical-nested" aria-label="Nested Table 4">
+          <tr><th>Nested Table 4</th></tr>
+          <tr>
+            <td class="html-cell">HTML</td>
+          </tr>
+        </table>
 
         
-        <td width="70%" valign="top">
+        <div style="height:16px;"></div>
 
-            
-            <table width="100%">
-                <tr>
-                    <th>Nested Table 2</th>
-                    <th>Column 1</th>
-                    <th>Column 2</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>abc</td>
-                    <td>def</td>
-                </tr>
-            </table>
+       
+        <table class="nested" aria-label="Nested Table 3">
+          <tr>
+            <th>Nested Table 3</th>
+          </tr>
+          <tr>
+            <td>
+              <div style="text-align:left;">
+                
+                Nested Table<br>
+                <button type="button" style="margin-top:8px;padding:6px 10px;">Demo Continued</button>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </td>
 
-            <br>
+      
+      <td style="width: 72%;">
+       
+        <table class="nested" aria-label="Nested Table 1" style="margin-bottom:14px;">
+          <tr>
+            <th>Nested Table 1</th>
+            <td>
+              <div class="list-box" style="text-align:left;">
+                <ul style="margin:0; padding-left: 20px;">
+                  <li>List item 1</li>
+                  <li>List item 2</li>
+                  <li>List item 3</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
 
-           
-            <table width="100%">
-                <tr>
-                    <th>Nested Table 1</th>
-                </tr>
-                <tr>
-                    <td>
-                        <ul>
-                            <li>List item 1</li>
-                            <li>List item 2</li>
-                            <li>List item 3</li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
-
-        </td>
+        <table class="nested" aria-label="Nested Table 2" style="width:100%;">
+          <tr>
+            <th colspan="2">Nested Table 2</th>
+          </tr>
+          <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+          </tr>
+          <tr>
+            <td>abc</td>
+            <td>def</td>
+          </tr>
+         
+          <tr>
+            <td style="height:40px;"></td>
+            <td style="height:40px;"></td>
+          </tr>
+        </table>
+      </td>
     </tr>
-</table>
-
-
-
-		
+  </table>
+	  
   </body>
 </html>
